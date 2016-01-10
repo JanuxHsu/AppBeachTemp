@@ -50,7 +50,7 @@ router.post('/update', function (req, res) {
       AppId:AppID
     },
     behaviorContent : req.body.behaviorContent,
-    clusterID : clusterID
+    clusterId : clusterID
   };
 
   AppInfo.findOneAndUpdate(query, data, options, function(err, result){
