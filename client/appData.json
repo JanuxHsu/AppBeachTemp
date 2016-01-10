@@ -1,0 +1,70 @@
+[{
+        "category": "Games",
+        "id": "id375380948",
+        "name": "Apple Store",
+        "image": "http://a2.mzstatic.com/us/r30/Purple3/v4/82/ec/2b/82ec2b9d-250f-b3e2-d10a-c5b71258d0b9/icon175x175.png",
+        "description": "Shop for Apple products and accessories, and get the most from your visits to the Apple Retail Store. Start your order on one device and finish it on another. Get items shipped to your door or choose to pick them up in store. Browse trending products. Read reviews for hundreds of accessories. Find your nearest Apple Retail Store and check "
+    }, {
+        "category": "Games",
+        "id": "id389801252",
+        "name": "Instagram",
+        "image": "http://a1.mzstatic.com/us/r30/Purple3/v4/4d/30/31/4d30315c-365c-86f4-77da-b7d5c4e49ff7/icon175x175.png",
+        "description": " Instagram 可讓你輕鬆捕捉並分享這世界的瞬間。將日常生活的相片和影片幻化成藝術作品，和親朋好友一起分享。 "
+    }, {
+        "category": "Games",
+        "id": "id954196418",
+        "name": "糖果消消樂",
+        "image": "http://a5.mzstatic.com/us/r30/Purple69/v4/68/3c/37/683c37dd-3580-e2cb-eb23-6ff97486bdea/icon175x175.png",
+        "description": "《糖果消消樂》是由清理大師和AppStore強力推薦的消除遊戲！"
+    }, {
+        "category": "Books",
+        "id": "id490217893",
+        "name": "iTunes U",
+        "image": "http://a5.mzstatic.com/us/r30/Purple49/v4/69/5c/75/695c75d1-9a30-a54a-a509-f40f2df6d909/icon175x175.png",
+        "description": "iTunes U 提供教師使用 iPad 統合全班所需的一切元素，使用 App 和您自己的教材備課、查收學生的作業並評分、進行一對一或小組對談，以及為 PDF 作業加入註解。",
+
+    }, {
+        "category": "Books",
+        "id": "id284882215",
+        "name": "Facebook",
+        "image": "http://a2.mzstatic.com/us/r30/Purple3/v4/8f/1c/4b/8f1c4bd4-5bf2-6fd8-9f62-aedab60b5a98/icon175x175.jpeg",
+        "description": "和朋友保持聯絡，再也沒有比這個更快了。查看朋友的近況,分享最新消息、相片和影片,當朋友對你的貼文說讚或回應，立"
+    }, {
+        "category": "Books",
+        "id": "id443904275",
+        "name": "Line",
+        "image": "http://a1.mzstatic.com/us/r30/Purple69/v4/52/82/04/528204ca-b51e-beec-4b5d-5666bd27779a/icon175x175.png",
+        "description": "免費通話、免費簡訊的終極應用程式"
+    }, {
+        "category": "Lifestyle",
+        "id": "id585027354",
+        "name": "Line",
+        "image": "http://a5.mzstatic.com/us/r30/Purple3/v4/26/1b/7b/261b7bca-919e-085e-4a39-f2209b1111d0/icon175x175.jpeg",
+        "description": "Google 地圖應用程式經過全新設計，可在 iPhone 和 iPad 上使用，讓您可以用更快的速度輕鬆愜意地遨遊世界。您可以透過應用程式找出城鎮裡的絕佳景點，還能取得前往該處的交通資訊。"
+    }, {
+        "category": "Lifestyle",
+        "id": "id414478124",
+        "name": "WeChat",
+        "image": "http://a5.mzstatic.com/us/r30/Purple3/v4/6a/fd/de/6afddec5-50e7-a3b7-99da-e4ef0e324173/icon175x175.png",
+        "description": "WeChat，超過五億人使用的手機通訊App"
+    }, {
+        "category": "Lifestyle",
+        "id": "id447188370",
+        "name": "Snapchat",
+        "image": "http://a3.mzstatic.com/us/r30/Purple6/v4/d8/d1/e9/d8d1e92a-a791-c968-b092-5434b6211471/icon175x175.png",
+        "description": "享受快速有趣的行動對話！拍攝照片或影片，加上字幕，傳送給朋友。朋友看了會大笑，接著快照會從螢幕消失 - 除非朋友進行截圖！"
+    }, {
+        "category": "Lifestyle",
+        "id": "id300915900",
+        "name": "KKBOX",
+        "image": "http://a5.mzstatic.com/us/r30/Purple3/v4/6a/fd/de/6afddec5-50e7-a3b7-99da-e4ef0e324173/icon175x175.png",
+        "description": "聽歌就是我的 Lifestyle ！"
+    }, {
+        "category": "Lifestyle",
+        "id": "id904209370",
+        "name": "B612",
+        "image": "http://a4.mzstatic.com/us/r30/Purple3/v4/89/ba/b0/89bab039-0bbd-5f43-1dcb-200737cb2680/icon175x175.jpeg",
+        "description": "B612獲得了2015年德國紅點設計獎「Best of Best」獎！"
+    }
+
+]

@@ -1,0 +1,286 @@
+{
+  "BluetoothSharingPermission": {
+    "frameworkName": "BluetoothSharingPermission",
+    "classes": {
+      "CBCentralManager": {
+        "className": "CBCentralManager",
+        "methodNames": [
+          "initWithDelegate_queue_",
+          "initWithDelegate_queue_options_",
+          "connectPeripheral_options_",
+          "cancelPeripheralConnection_",
+          "retrieveConnectedPeripherals",
+          "retrieveConnectedPeripheralsWithServices_",
+          "retrievePeripherals_",
+          "retrievePeripheralsWithIdentifiers_",
+          "scanForPeripheralsWithServices_options:",
+          "stopScan",
+          "state",
+          "delegate"
+        ]
+      },
+      "CBPferipheralManager": {
+        "className": "CBCentralManager",
+        "methodNames": [
+          "initWithDelegate_queue_",
+          "initWithDelegate_queue_options_",
+          "delegate",
+          "state",
+          "authorizationStatus",
+          "addService_",
+          "removeService_",
+          "removeAllServices",
+          "startAdvertising_",
+          "stopAdvertising",
+          "isAdvertising",
+          "updateValue_forCharacteristic_onSubscribedCentrals_",
+          "respondToRequest_withResult_",
+          "setDesiredConnectionLatency_forCentral_"
+        ]
+      }
+    }
+  },
+
+
+  "CalendarsAndReminders": {
+    "frameworkName": "CalendarsAndReminders",
+    "classes": {
+      "EKEventStore": {
+        "className": "EKEventStore",
+        "methodNames": [
+          "requestAccessToEntityType_completion_",
+          "authorizationStatusForEntityType_",
+          "eventStoreIdentifier",
+          "calendars",
+          "defaultCalendarForNewEvents",
+          "defaultCalendarForNewReminders",
+          "calendarWithIdentifier_",
+          "calendarsForEntityType_",
+          "saveCalendar_commit_error_",
+          "removeCalendar_commit_error_",
+          "eventWithIdentifier_",
+          "eventsMatchingPredicate_",
+          "enumerateEventsMatchingPredicate_usingBlock_",
+          "predicateForEventsWithStartDate_endDate_calendars_",
+          "saveEvent_span_error_",
+          "saveEvent_span_commit_error_",
+          "removeEvent_span_error_",
+          "removeEvent_span_commit_error_",
+          "fetchRemindersMatchingPredicate_completion_",
+          "predicateForRemindersInCalendars_",
+          "predicateForIncompleteRemindersWithDueDateStarting_ending_calendars_",
+          "predicateForCompletedRemindersWithCompletionDateStarting_ending_calendars_",
+          "cancelFetchRequest_",
+          "saveReminder_commit_error_",
+          "removeReminder_commit_error_",
+          "calendarItemWithIdentifier_",
+          "calendarItemsWithExternalIdentifier_",
+          "sources",
+          "sourceWithIdentifier_",
+          "commit_",
+          "reset",
+          "refreshSourcesIfNecessary",
+          "EKEventStoreRequestAccessCompletionHandler",
+          "EKEventSearchCallback",
+          "EKSpan",
+          "EKAuthorizationStatus",
+          "EKEventStoreChangedNotification"
+        ]
+      }
+    }
+  },
+
+
+  "LocationServicesPermission": {
+    "frameworkName": "LocationServicesPermission",
+    "classes": {
+      "CLLocationManager": {
+        "className": "CLLocationManager",
+        "methodNames": [
+          "requestWhenInUseAuthorization",
+          "requestAlwaysAuthorization",
+          "authorizationStatus",
+          "locationServicesEnabled",
+          "deferredLocationUpdatesAvailable",
+          "significantLocationChangeMonitoringAvailable",
+          "headingAvailable",
+          "isMonitoringAvailableForClass:",
+          "isRangingAvailable",
+          "delegate",
+          "startUpdatingLocation",
+          "stopUpdatingLocation",
+          "pausesLocationUpdatesAutomatically",
+          "distanceFilter",
+          "desiredAccuracy",
+          "activityType",
+          "startMonitoringSignificantLocationChanges",
+          "stopMonitoringSignificantLocationChanges",
+          "startUpdatingHeading",
+          "stopUpdatingHeading",
+          "dismissHeadingCalibrationDisplay",
+          "headingFilter",
+          "headingOrientation",
+          "startMonitoringForRegion_",
+          "stopMonitoringForRegion_",
+          "monitoredRegions",
+          "maximumRegionMonitoringDistance",
+          "startRangingBeaconsInRegion_",
+          "stopRangingBeaconsInRegion_",
+          "requestStateForRegion_",
+          "rangedRegions",
+          "startMonitoringVisits",
+          "stopMonitoringVisits",
+          "allowDeferredLocationUpdatesUntilTraveled_timeout_",
+          "disallowDeferredLocationUpdates",
+          "location",
+          "heading",
+          "locationServicesEnabled",
+          "headingAvailable",
+          "regionMonitoringAvailable",
+          "regionMonitoringEnabled",
+          "startMonitoringForRegion_desiredAccuracy_",
+          "purpose"
+        ]
+      }
+    }
+  },
+
+  "Microphone": {
+    "frameworkName": "Microphone",
+    "classes": {
+      "AVAudioSession": {
+        "className": "AVAudioSession",
+        "methodNames": [
+          "sharedInstance",
+          "requestRecordPermission:",
+          "recordPermission",
+          "category",
+          "categoryOptions",
+          "setCategory:error_",
+          "setCategory_withOptions_error_",
+          "mode",
+          "setMode_error_",
+          "setActive_error_",
+          "setActive_withOptions_error_",
+          "outputVolume",
+          "inputGain",
+          "inputGainSettable",
+          "setInputGain_error_",
+          "inputLatency",
+          "outputLatency",
+          "sampleRate",
+          "preferredSampleRate",
+          "setPreferredSampleRate_error_",
+          "IOBufferDuration",
+          "preferredIOBufferDuration",
+          "setPreferredIOBufferDuration_error_",
+          "secondaryAudioShouldBeSilencedHint",
+          "inputNumberOfChannels",
+          "maximumInputNumberOfChannels",
+          "preferredInputNumberOfChannels",
+          "setPreferredInputNumberOfChannels_error_",
+          "outputNumberOfChannels",
+          "maximumOutputNumberOfChannels",
+          "preferredOutputNumberOfChannels",
+          "setPreferredOutputNumberOfChannels_error_",
+          "currentRoute",
+          "inputAvailable",
+          "otherAudioPlaying",
+          "overrideOutputAudioPort_error_",
+          "availableInputs",
+          "preferredInput",
+          "setPreferredInput_error_",
+          "inputDataSources",
+          "inputDataSource",
+          "setInputDataSource_error_",
+          "outputDataSources",
+          "outputDataSource",
+          "setOutputDataSource_error_",
+          "delegate",
+          "currentHardwareInputNumberOfChannels",
+          "currentHardwareOutputNumberOfChannels",
+          "currentHardwareSampleRate",
+          "preferredHardwareSampleRate",
+          "setPreferredHardwareSampleRate_error_",
+          "inputIsAvailable",
+          "setActive_withFlags_error_",
+          "PermissionBlock",
+          "AVAudioSessionInterruptionOptions",
+          "AVAudioSessionSetActiveOptions",
+          "AVAudioSessionPortOverride",
+          "AVAudioSessionRouteChangeReason",
+          "AVAudioSessionInterruptionType",
+          "AVAudioSessionErrorCode",
+          "AVAudioSessionRecordPermission",
+          "AVAudioSessionSilenceSecondaryAudioHintType",
+          "AVAudioSessionInterruptionNotification",
+          "AVAudioSessionRouteChangeNotification",
+          "AVAudioSessionMediaServicesWereLostNotification",
+          "AVAudioSessionMediaServicesWereResetNotification",
+          "AVAudioSessionSilenceSecondaryAudioHintNotification"
+        ]
+      },
+      "AVAudioRecorder": {
+        "className": "AVAudioRecorder",
+        "methodNames": [
+          "initWithURL_settings_error_",
+          "prepareToRecord",
+          "record",
+          "recordAtTime_",
+          "recordForDuration_",
+          "recordAtTime_forDuration_",
+          "pause",
+          "stop",
+          "delegate",
+          "deleteRecording",
+          "recording",
+          "url",
+          "channelAssignments",
+          "currentTime",
+          "deviceCurrentTime",
+          "settings",
+          "meteringEnabled",
+          "updateMeters",
+          "peakPowerForChannel_",
+          "averagePowerForChannel_"
+        ]
+      }
+    }
+  },
+  "PhotoAndCamera": {
+    "frameworkName": "PhotoAndCamera",
+    "classes": {
+      "UIImagePickerController": {
+        "className": "UIImagePickerController",
+        "methodNames": [
+          "availableMediaTypesForSourceType_",
+          "isSourceTypeAvailable_",
+          "sourceType",
+          "allowsEditing",
+          "allowsImageEditing",
+          "delegate",
+          "mediaTypes",
+          "videoQuality",
+          "videoMaximumDuration",
+          "showsCameraControls",
+          "cameraOverlayView",
+          "cameraViewTransform",
+          "takePicture",
+          "startVideoCapture",
+          "stopVideoCapture",
+          "cameraDevice",
+          "isCameraDeviceAvailable_",
+          "availableCaptureModesForCameraDevice_",
+          "cameraCaptureMode",
+          "cameraFlashMode",
+          "isFlashAvailableForCameraDevice_",
+          "UIImagePickerControllerSourceType",
+          "UIImagePickerControllerQualityType",
+          "UIImagePickerControllerCameraDevice",
+          "UIImagePickerControllerCameraCaptureMode",
+          "UIImagePickerControllerCameraFlashMode"
+        ]
+      }
+    }
+  }
+}

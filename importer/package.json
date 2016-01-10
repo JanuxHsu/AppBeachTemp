@@ -1,0 +1,17 @@
+{
+  "name": "importer",
+  "version": "1.0.0",
+  "description": "convert data to mongo",
+  "main": "importer.js",
+  "dependencies": {
+    "async": "^0.9.0",
+    "mongoose": "^4.0.2",
+    "lodash": "^3.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

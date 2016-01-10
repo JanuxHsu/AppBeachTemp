@@ -1,0 +1,65 @@
+{
+  "name": "AppAnalysisFrontEnd",
+  "version": "0.0.0",
+  "description": "A React/Flux app generate by RF, powered with JavaScript",
+  "main": "build/bundle.js",
+  "dependencies": {
+    "d3-state-visualizer": "^0.5.0",
+    "es6-promise": "^3.0.2",
+    "flux": "^2.0.3",
+    "keymirror": "^0.1.1",
+    "lodash": "^3.10.1",
+    "object-assign": "^2.0.0",
+    "promise": "^7.0.4",
+    "radium": "^0.14.1",
+    "react": "^0.13.3",
+    "react-bubble-chart": "^0.2.2",
+    "react-chartjs": "^0.6.0",
+    "react-highcharts": "^3.0.0",
+    "react-router-component": "^0.26.1",
+    "url-pattern": "^1.0.0"
+  },
+  "devDependencies": {
+    "css-loader": "*",
+    "file-loader": "*",
+    "jest-cli": "*",
+    "react-hot-loader": "*",
+    "react-tools": "*",
+    "style-loader": "*",
+    "url-loader": "*",
+    "webpack-dev-server": "*",
+    "webpack": "*",
+    "jsx-loader": "*",
+    "bootstrap": "*",
+    "bootstrap-webpack": "*",
+    "imports-loader": "*",
+    "jquery": "*"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.prod.config.js",
+    "dev": "webpack-dev-server --config webpack.dev.config.js --colors --content-base ./build",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "",
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "testFileExtensions": [
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "globals": {
+      "SCRIPTS": "<rootDir>/src/scripts"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/node_modules/"
+    ],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
+  }
+}

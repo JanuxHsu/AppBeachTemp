@@ -1,0 +1,13 @@
+#api project
+*.log
+api/node_modules/
+api/*.log
+
+#importer project
+importer/CallSequenceResults/
+importer/node_modules/
+importer/*.log
+
+#crawler
+crawler/node_modules/
+crawler/*.log
