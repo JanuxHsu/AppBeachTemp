@@ -34,7 +34,7 @@ router.get('/:id', function (req, res) {
 });
 
 router.post('/update', function (req, res) {
-  var AppID = req.body.appID;
+  var AppID = req.body.AppId;
   console.log(AppID);
   var clusterID = req.body.clusterID;
 
@@ -47,7 +47,7 @@ router.post('/update', function (req, res) {
   };
   var data = {
     $set: {
-      id:AppID
+      AppId:AppID
     },
     behaviorContent : req.body.behaviorContent,
     clusterID : clusterID
