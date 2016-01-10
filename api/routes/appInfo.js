@@ -9,8 +9,8 @@ var Schema = mongoose.Schema;
 
 
 var AppInfoSchema = new Schema({
-  AppID : Number,
-  clusterID : Number,
+  appId : Number,
+  clusterId : Number,
   behaviorContent : 'mixed'
 });
 
@@ -25,8 +25,8 @@ var errReturn = function (err, res) {
 
 
 router.get('/:id', function (req, res) {
-  var appID = req.params.id;
-  AppInfo.find({AppID:appID},function(err, data){
+  var appId = req.params.id;
+  AppInfo.find({appId:appId},function(err, data){
     if(!err){
       res.json(data);
     }
@@ -34,12 +34,12 @@ router.get('/:id', function (req, res) {
 });
 
 router.post('/update', function (req, res) {
-  var AppID = req.body.AppId;
-  console.log(AppID);
-  var clusterID = req.body.clusterID;
+  var appId = req.body.appId;
+  console.log(appId);
+  var clusterId = req.body.clusterId;
 
   var query = {
-    AppID : AppID
+    appId : appId
   };
   var options = {
     new: false,
@@ -47,10 +47,10 @@ router.post('/update', function (req, res) {
   };
   var data = {
     $set: {
-      AppId:AppID
+      appId:appId
     },
     behaviorContent : req.body.behaviorContent,
-    clusterId : clusterID
+    clusterId : clusterId
   };
 
   AppInfo.findOneAndUpdate(query, data, options, function(err, result){
