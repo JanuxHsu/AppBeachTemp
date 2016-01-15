@@ -8,8 +8,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var debugDB = require('debug')('Database');
 var mongoose = require('mongoose');
-var DB_URL = process.env.DB_URL || 'mongodb://140.119.19.90:27117/appbeach';
-
+// var DB_URL = process.env.DB_URL || 'mongodb://140.119.19.90:27117/appbeach';
+var DB_URL = process.env.DB_URL || 'mongodb://140.119.19.19:27017/appbeach';
 debugDB('Connect to %s', DB_URL);
 mongoose.connect(DB_URL, {
   server: {
@@ -30,7 +30,7 @@ mongoose.connection.on('error', function (err) {
 });
 mongoose.connection.on('disconnected', function () {
   debugDB('Disconnected. Retry...');
-  mongoose.connect(process.env.DB_URL || 'mongodb://140.119.19.90:27117/appbeach', {
+  mongoose.connect(process.env.DB_URL || 'mongodb://140.119.19.19:27017/appbeach', {
     server: {
       auto_reconnect: true
     }
