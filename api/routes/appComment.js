@@ -29,8 +29,10 @@ var errReturn = function (err, res) {
 router.get('/:id', function (req, res) {
   var app_id = req.params.id;
   AppCluster.find({app_id:app_id},function(err, data){
-    if(!err){
+    if(!err && data.length > 0){
       res.json(data);
+    }else{
+        res.json({status:"Fail"});
     }
   });
 });
