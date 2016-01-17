@@ -72,8 +72,11 @@ app.use('/topiclist', require('./routes/topiclist'));
 app.use('/appInfo', require('./routes/appInfo'));
 //save app cluster
 app.use('/appCluster', require('./routes/appCluster'));
-//save app cluster
+//save app stat
 app.use('/appStat', require('./routes/appStat'));
+//save app comment
+app.use('/appComment', require('./routes/appComment'));
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
