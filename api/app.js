@@ -80,6 +80,8 @@ app.use('/appComment', require('./routes/appComment'));
 app.use('/appClassList', require('./routes/appClassList'));
 // //save app behavior
 // app.use('/appBehavior', require('./routes/appBehavior'));
+// save app description and app id
+app.use('/appReco', require('./routes/appReco'))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
