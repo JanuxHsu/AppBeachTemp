@@ -8,15 +8,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var appCommentSchema = new Schema({
-//   commentId: Number,
-  app_id: String,
-  comment_count: String,
-  features : 'mixed',
-  score: Number
+var appClassListSchema = new Schema({
+  appId: Number,
+  classList: String,
 });
 
-var AppCluster = mongoose.model('appComment', appCommentSchema);
+var AppClassList = mongoose.model('appClassList', appClassListSchema);
 
 var errReturn = function (err, res) {
   debug(err);
@@ -27,8 +24,8 @@ var errReturn = function (err, res) {
 
 
 router.get('/:id', function (req, res) {
-  var app_id = req.params.id;
-  AppCluster.find({app_id:app_id},function(err, data){
+  var appId = req.params.id;
+  AppClassList.find({appId:appId},function(err, data){
     if(!err){
       res.json(data);
     }
@@ -36,11 +33,11 @@ router.get('/:id', function (req, res) {
 });
 
 router.post('/update', function (req, res) {
-  var app_id = req.body.app_id;
-  console.log(app_id);
+  var appId = req.body.appId;
+  console.log(appId);
 
   var query = {
-    app_id : app_id
+    appId : appId
   };
   var options = {
     new: false,
@@ -48,14 +45,12 @@ router.post('/update', function (req, res) {
   };
   var data = {
     $set: {
-      app_id : app_id
+      appId : appId
     },
-    features : req.body.features,
-    comment_count : req.body.comment_count,
-    score : req.body.score
+    classList : req.body.classList,
   };
 
-  AppCluster.findOneAndUpdate(query, data, options, function(err, result){
+  AppClassList.findOneAndUpdate(query, data, options, function(err, result){
     if(!err){
       res.json({status:"OK!"});
     }
