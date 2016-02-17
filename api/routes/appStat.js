@@ -10,18 +10,17 @@ var Schema = mongoose.Schema;
 
 var statSchema = new Schema({
   id : Number,
-  UpdatedCount : Number,
-  StatData: 'Mixed',
+  updatedCount : Number,
+  statData: 'Mixed',
 });
 
-var Stat = mongoose.model('AppStat', statSchema);
+var Stat = mongoose.model('appRecoStat', statSchema);
 
 var errReturn = function (err, res) {
   debug(err);
   res.status(err.code);
   res.json(err);
 };
-
 
 
 router.get('/', function (req, res) {
@@ -42,14 +41,11 @@ router.post('/update', function (req, res) {
     $set: {
       id:1
     },
-    $inc: {
-      UpdatedCount: 1
-    },
-    StatData:req.body
+    statData:req.body.data
   };
   Stat.findOneAndUpdate(query, data, options, function(err, result){
     if(!err){
-      res.json({"count" : result.UpdatedCount || 0});
+      res.json({status:"OK!"});
     }
   });
 });

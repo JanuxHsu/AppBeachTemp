@@ -9,11 +9,11 @@ var Schema = mongoose.Schema;
 
 
 var appClassListSchema = new Schema({
-  appId: Number,
+  appId: String,
   classList: String,
 });
 
-var AppClassList = mongoose.model('appClassList', appClassListSchema);
+var AppClassList = mongoose.model('appRecoClassList', appClassListSchema);
 
 var errReturn = function (err, res) {
   debug(err);

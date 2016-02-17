@@ -14,7 +14,7 @@ var appClusterSchema = new Schema({
   clusterChart: String
 });
 
-var AppCluster = mongoose.model('appCluster', appClusterSchema);
+var AppCluster = mongoose.model('appRecoCluster', appClusterSchema);
 
 var errReturn = function (err, res) {
   debug(err);

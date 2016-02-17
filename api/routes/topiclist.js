@@ -10,11 +10,10 @@ var Schema = mongoose.Schema;
 
 var topicSchema = new Schema({
   id : Number,
-  UpdatedCount : Number,
-  TopicData: 'Mixed',
+  topicData: 'Mixed',
 });
 
-var Topic = mongoose.model('Topic', topicSchema);
+var Topic = mongoose.model('appRecoTopic', topicSchema);
 
 var errReturn = function (err, res) {
   debug(err);
@@ -42,14 +41,11 @@ router.post('/update', function (req, res) {
     $set: {
       id:1
     },
-    $inc: {
-      UpdatedCount: 1
-    },
-    TopicData:req.body
+    topicData:req.body
   };
   Topic.findOneAndUpdate(query, data, options, function(err, result){
     if(!err){
-      res.json({"count" : result.UpdatedCount || 0});
+      res.json({status:"OK!"});
     }
   });
 });

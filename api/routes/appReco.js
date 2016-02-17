@@ -16,7 +16,7 @@ var recoSchema = new Schema({
   comment : String 
 });
 
-var Reco = mongoose.model('AppReco', recoSchema);
+var Reco = mongoose.model('appRecoData', recoSchema);
 
 var errReturn = function (err, res) {
   debug(err);

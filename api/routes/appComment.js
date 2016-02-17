@@ -10,13 +10,13 @@ var Schema = mongoose.Schema;
 
 var appCommentSchema = new Schema({
 //   commentId: Number,
-  app_id: String,
-  comment_count: String,
+  appId: String,
+  commentCount: String,
   features : 'mixed',
   score: Number
 });
 
-var AppCluster = mongoose.model('appComment', appCommentSchema);
+var AppCluster = mongoose.model('appRecoComment', appCommentSchema);
 
 var errReturn = function (err, res) {
   debug(err);
@@ -27,8 +27,8 @@ var errReturn = function (err, res) {
 
 
 router.get('/:id', function (req, res) {
-  var app_id = req.params.id;
-  AppCluster.find({app_id:app_id},function(err, data){
+  var appId = req.params.id;
+  AppCluster.find({appId:appId},function(err, data){
     if(!err){
       res.json(data);
     }
@@ -36,11 +36,11 @@ router.get('/:id', function (req, res) {
 });
 
 router.post('/update', function (req, res) {
-  var app_id = req.body.app_id;
-  console.log(app_id);
+  var appId = req.body.appId;
+  console.log(appId);
 
   var query = {
-    app_id : app_id
+    appId : appId
   };
   var options = {
     new: false,
@@ -48,10 +48,10 @@ router.post('/update', function (req, res) {
   };
   var data = {
     $set: {
-      app_id : app_id
+      appId : appId
     },
     features : req.body.features,
-    comment_count : req.body.comment_count,
+    commentCount : req.body.commentCount,
     score : req.body.score
   };
 
