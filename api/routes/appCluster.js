@@ -9,7 +9,7 @@ var Schema = mongoose.Schema;
 
 
 var appClusterSchema = new Schema({
-  clusterId: Number,
+  clusterId: String,
   appIds: 'mixed',
   clusterChart: String
 });
