@@ -17,6 +17,13 @@ var appInfoSchema = new Schema({
   rating: Number,
   ratingUsers: Number
 });
+appInfoSchema.methods.listApp = function (skip,limit,cb) {
+  return this.model('appRecoInfo')
+             .find()
+             .skip(skip)
+             .limit(limit)
+             .exec(cb);
+};
 
 var AppInfo = mongoose.model('appRecoInfo', appInfoSchema);
 
@@ -25,7 +32,18 @@ var errReturn = function (err, res) {
   res.status(err.code);
   res.json(err);
 };
-
+router.get('/', function (req, res) {
+  var skip = parseInt(req.query.skip) || 0;
+  var limit = parseInt(req.query.limit) || 40;
+  var app = new AppInfo();
+  app.listApp(skip, limit, function (err, apps) {
+    if (err){
+      errReturn(err, res);
+    } else {
+      res.json(apps);
+    }
+  });
+});
 router.get('/:id', function (req, res) {
   var appId = req.params.id;
   AppInfo.find({appId:appId},function(err, data){
@@ -34,7 +52,6 @@ router.get('/:id', function (req, res) {
     }
   });
 });
-
 router.post('/update', function (req, res) {
   var appId = req.body.appId;
   var query = {
