@@ -33,32 +33,34 @@ router.get('/:id', function (req, res) {
     if(!err){
 
       if(!data){
-            AppInfo.findOne({appId:'284220417'},function(err, data){
-        // if (!data) {
-        //     console.log('hello');
+        //     AppInfo.findOne({appId:'284220417'},function(err, data){
+        // // if (!data) {
+        // //     console.log('hello');
+        // // }
+        // if(!err){
+        // var test = {
+        //     test:"123"
+        // };
+        // var Temp_Data = {
+        //     behaviorContent: data.behaviorContent,
+        //     appId: appId,
+        //     clusterId: data.clusterId,
+        //     categoryScore_1: 0,
+        //     categoryScore_2: 0,
+        //     categoryScore_3: 0,
+        //     categoryScore_4: 0
+        // };
+        // var behaviorContent = Temp_Data.behaviorContent;
+        // for(var i in behaviorContent){
+        //     //console.log('category_score' + behaviorContent[i].category);
+        //     Temp_Data['categoryScore_' + behaviorContent[i].category] += parseFloat(behaviorContent[i].score);
+        //     //Temp_Data['category' + behaviorContent[i].category + "_score"] = behaviorContent[i].score;
         // }
-        if(!err){
-        var test = {
-            test:"123"
-        };
         var Temp_Data = {
-            behaviorContent: data.behaviorContent,
-            appId: appId,
-            clusterId: data.clusterId,
-            categoryScore_1: 0,
-            categoryScore_2: 0,
-            categoryScore_3: 0,
-            categoryScore_4: 0
+            status : "fail",
+            msg : "Data not found"
         };
-        var behaviorContent = Temp_Data.behaviorContent;
-        for(var i in behaviorContent){
-            //console.log('category_score' + behaviorContent[i].category);
-            Temp_Data['categoryScore_' + behaviorContent[i].category] += parseFloat(behaviorContent[i].score);
-            //Temp_Data['category' + behaviorContent[i].category + "_score"] = behaviorContent[i].score;
-        }
         res.json(Temp_Data);
-        }
-        });
       }else{
         var Temp_Data = {
             behaviorContent: data.behaviorContent,
@@ -80,7 +82,6 @@ router.get('/:id', function (req, res) {
         }
     });
 });
-
 router.post('/update', function (req, res) {
   var appId = req.body.appId;
   console.log(appId);
