@@ -17,12 +17,20 @@ var appInfoSchema = new Schema({
   rating: Number,
   ratingUsers: Number
 });
-appInfoSchema.methods.listApp = function (skip,limit,cb) {
-  return this.model('appRecoInfo')
-             .find()
-             .skip(skip)
-             .limit(limit)
-             .exec(cb);
+appInfoSchema.methods.listApp = function (skip,limit,name,cb) {
+    if (name == 'none'){
+        return this.model('appRecoInfo')
+                    .find()
+                    .skip(skip)
+                    .limit(limit)
+                    .exec(cb);
+    }else{
+        return this.model('appRecoInfo')
+                    .find({name : new RegExp(name, 'i')})
+                    .skip(skip)
+                    .limit(limit)
+                    .exec(cb);
+    }
 };
 
 var AppInfo = mongoose.model('appRecoInfo', appInfoSchema);
@@ -33,10 +41,11 @@ var errReturn = function (err, res) {
   res.json(err);
 };
 router.get('/', function (req, res) {
+  var name = req.query.name || 'none';
   var skip = parseInt(req.query.skip) || 0;
   var limit = parseInt(req.query.limit) || 40;
   var app = new AppInfo();
-  app.listApp(skip, limit, function (err, apps) {
+  app.listApp(skip, limit, name, function (err, apps) {
     if (err){
       errReturn(err, res);
     } else {
