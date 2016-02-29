@@ -67,8 +67,8 @@ router.get('/', function (req, res) {
 });
 router.get('/genre/:genre', function (req, res) {
   var appGenre = req.params.genre;
-  var skip = req.query.skip || 0;
-  var limit = req.query.limit || 40;
+  var skip = parseInt(req.query.skip) || 0;
+  var limit = parseInt(req.query.limit) || 40;
   var app = new AppInfo();
 
   app.findByAppGenre(appGenre, skip, limit, function (err, app) {
