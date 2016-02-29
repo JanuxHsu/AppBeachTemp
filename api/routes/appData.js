@@ -17,6 +17,18 @@ var appInfoSchema = new Schema({
   rating: Number,
   ratingUsers: Number
 });
+appInfoSchema.methods.findByAppGenre = function (genre, skip, limit, cb) {
+  if (genre == 'listAll'){
+      return this.model('appRecoInfo').find().distinct('genre').exec(cb);
+  }else{
+  return this.model('appRecoInfo')
+                .find({genre : genre})
+                .skip(skip)
+                .limit(limit)
+                .exec(cb);
+  }
+};
+
 appInfoSchema.methods.listApp = function (skip,limit,name,cb) {
     if (name == 'none'){
         return this.model('appRecoInfo')
@@ -52,6 +64,21 @@ router.get('/', function (req, res) {
       res.json(apps);
     }
   });
+});
+router.get('/genre/:genre', function (req, res) {
+  var appGenre = req.params.genre;
+  var skip = req.query.skip || 0;
+  var limit = req.query.limit || 40;
+  var app = new AppInfo();
+
+  app.findByAppGenre(appGenre, skip, limit, function (err, app) {
+    if (err) {
+      errReturn(err, res);
+    } else {
+      res.json(app);
+    }
+  });
+
 });
 router.get('/:id', function (req, res) {
   var appId = req.params.id;
