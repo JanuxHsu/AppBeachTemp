@@ -11,7 +11,8 @@ var Schema = mongoose.Schema;
 var appClusterSchema = new Schema({
   clusterId: String,
   appIds: 'mixed',
-  clusterChart: String
+  clusterChart: String,
+  topic: 'mixed'
 });
 
 var AppCluster = mongoose.model('appRecoCluster', appClusterSchema);
@@ -49,7 +50,8 @@ router.post('/update', function (req, res) {
       clusterId : clusterId
     },
     appIds : req.body.appIds,
-    clusterChart : req.body.clusterChart
+    clusterChart : req.body.clusterChart,
+    topic : req.body.topic
   };
 
   AppCluster.findOneAndUpdate(query, data, options, function(err, result){
