@@ -23,7 +23,57 @@ var errReturn = function (err, res) {
 };
 
 
-
+router.get('/category/:category/:id', function (req, res) {
+  var categoryId = req.params.category;
+  if (categoryId != '1' && categoryId != '2' && categoryId != '3'){
+      var Temp_Data = {
+            status : "fail",
+            msg : "Category parameter is not found"
+        };
+        res.json(Temp_Data);
+  }else{
+  var appId = req.params.id;
+  AppInfo.findOne({appId:appId},function(err, data){
+    if(!err){
+      if(!data){
+        var Temp_Data = {
+            status : "fail",
+            msg : "Data not found"
+        };
+        res.json(Temp_Data);
+      }else{
+        var labList = []
+        var dataList = []
+        var behaviorContent = data.behaviorContent;
+        for(var i in behaviorContent){
+            //console.log('category_score' + behaviorContent[i].category);
+            if (behaviorContent[i].category == categoryId){
+                labList.push(behaviorContent[i].name)
+                dataList.push(behaviorContent[i].score)
+            }
+            // Temp_Data['categoryScore_' + behaviorContent[i].category] += parseFloat(behaviorContent[i].score);
+            //Temp_Data['category' + behaviorContent[i].category + "_score"] = behaviorContent[i].score;
+        }
+        var datasetDict = {
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: dataList
+        }
+        var datasetsList = []
+        datasetsList.push(datasetDict)
+        var reDict = {
+            labels: labList,
+            datasets: datasetsList
+        }
+        res.json(reDict);
+        }
+        }
+    })};
+});
 router.get('/:id', function (req, res) {
   var appId = req.params.id;
   AppInfo.findOne({appId:appId},function(err, data){
@@ -31,31 +81,7 @@ router.get('/:id', function (req, res) {
     //     console.log('hello');
     // }
     if(!err){
-
       if(!data){
-        //     AppInfo.findOne({appId:'284220417'},function(err, data){
-        // // if (!data) {
-        // //     console.log('hello');
-        // // }
-        // if(!err){
-        // var test = {
-        //     test:"123"
-        // };
-        // var Temp_Data = {
-        //     behaviorContent: data.behaviorContent,
-        //     appId: appId,
-        //     clusterId: data.clusterId,
-        //     categoryScore_1: 0,
-        //     categoryScore_2: 0,
-        //     categoryScore_3: 0,
-        //     categoryScore_4: 0
-        // };
-        // var behaviorContent = Temp_Data.behaviorContent;
-        // for(var i in behaviorContent){
-        //     //console.log('category_score' + behaviorContent[i].category);
-        //     Temp_Data['categoryScore_' + behaviorContent[i].category] += parseFloat(behaviorContent[i].score);
-        //     //Temp_Data['category' + behaviorContent[i].category + "_score"] = behaviorContent[i].score;
-        // }
         var Temp_Data = {
             status : "fail",
             msg : "Data not found"
@@ -82,6 +108,7 @@ router.get('/:id', function (req, res) {
         }
     });
 });
+
 router.post('/update', function (req, res) {
   var appId = req.body.appId;
   console.log(appId);
