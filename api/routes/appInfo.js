@@ -23,15 +23,15 @@ var errReturn = function (err, res) {
 };
 
 
-router.get('/category/:category/:id', function (req, res) {
-  var categoryId = req.params.category;
-  if (categoryId != '1' && categoryId != '2' && categoryId != '3'){
-      var Temp_Data = {
-            status : "fail",
-            msg : "Category parameter is not found"
-        };
-        res.json(Temp_Data);
-  }else{
+router.get('/category/:id', function (req, res) {
+//   var categoryId = req.params.category;
+//   if (categoryId != '1' && categoryId != '2' && categoryId != '3'){
+//       var Temp_Data = {
+//             status : "fail",
+//             msg : "Category parameter is not found"
+//         };
+//         res.json(Temp_Data);
+//   }else{
   var appId = req.params.id;
   AppInfo.findOne({appId:appId},function(err, data){
     if(!err){
@@ -42,37 +42,42 @@ router.get('/category/:category/:id', function (req, res) {
         };
         res.json(Temp_Data);
       }else{
-        var labList = []
-        var dataList = []
-        var behaviorContent = data.behaviorContent;
-        for(var i in behaviorContent){
-            //console.log('category_score' + behaviorContent[i].category);
-            if (behaviorContent[i].category == categoryId){
-                labList.push(behaviorContent[i].name)
-                dataList.push(behaviorContent[i].score)
+        var outlist = []
+        var categoryId = 1;
+        for (; categoryId<4;categoryId++) {
+            var labList = []
+            var dataList = []
+            var behaviorContent = data.behaviorContent;
+            for(var i in behaviorContent){
+                //console.log('category_score' + behaviorContent[i].category);
+                if (behaviorContent[i].category == categoryId){
+                    labList.push(behaviorContent[i].name)
+                    dataList.push(behaviorContent[i].score)
+                }
             }
-            // Temp_Data['categoryScore_' + behaviorContent[i].category] += parseFloat(behaviorContent[i].score);
-            //Temp_Data['category' + behaviorContent[i].category + "_score"] = behaviorContent[i].score;
+            var datasetDict = {
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: dataList
+            }
+            var datasetsList = []
+            datasetsList.push(datasetDict)
+            var reDict = {
+                labels: labList,
+                datasets: datasetsList
+            }
+            outlist.push(reDict)
+            }
+            res.json(outlist);
         }
-        var datasetDict = {
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: dataList
         }
-        var datasetsList = []
-        datasetsList.push(datasetDict)
-        var reDict = {
-            labels: labList,
-            datasets: datasetsList
-        }
-        res.json(reDict);
-        }
-        }
-    })};
+    })
+    // }
+    ;
 });
 router.get('/:id', function (req, res) {
   var appId = req.params.id;
